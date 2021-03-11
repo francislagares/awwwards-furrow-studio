@@ -3,6 +3,8 @@ import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
+import Header from './header';
+
 const GlobalStyle = createGlobalStyle`
   ${normalize}
   * {
@@ -48,6 +50,7 @@ const Layout: React.FC = ({ children }) => {
     <>
       <ThemeProvider theme={lightTheme}>
         <GlobalStyle />
+        <Header />
         <main>{children}</main>
       </ThemeProvider>
     </>
