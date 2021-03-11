@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 
 interface IContainerStyled {
-  fluid: boolean;
+  fluid?: boolean;
+  spaceBetween?: boolean;
+  flexEnd?: boolean;
+  alignTop?: boolean;
+  noHeight?: boolean;
 }
 
 export const Container = styled.div<IContainerStyled>`
@@ -30,5 +34,35 @@ export const Container = styled.div<IContainerStyled>`
       margin: 0;
       padding: 0;
       max-width: 100%;
+    `}
+`;
+
+export const Flex = styled.div<IContainerStyled>`
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  ${props =>
+    props.spaceBetween &&
+    css`
+      justify-content: space-between;
+    `}
+
+  ${props =>
+    props.flexEnd &&
+    css`
+      justify-content: flex-end;
+    `}
+
+  ${props =>
+    props.alignTop &&
+    css`
+      justify-content: align-top;
+    `}
+
+  ${props =>
+    props.noHeight &&
+    css`
+      height: 0;
     `}
 `;

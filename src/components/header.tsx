@@ -1,19 +1,19 @@
 import React from 'react';
-import { Container } from '../styles/globalStyles';
+import { Container, Flex } from '../styles/globalStyles';
 import { HeaderNav } from '../styles/headerStyles';
 
 const Header = (): JSX.Element => {
   return (
     <HeaderNav>
       <Container fluid>
-        {/* <Flex>
-          <Logo>Logo</Logo>
+        <Flex spaceBetween noHeight>
+          {/*  <Logo>Logo</Logo>
           <Menu>
             <button>
               <span></span>
             </button>
-          </Menu>
-        </Flex> */}
+          </Menu> */}
+        </Flex>
       </Container>
     </HeaderNav>
   );
