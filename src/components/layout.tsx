@@ -36,14 +36,17 @@ const Layout: React.FC = ({ children }) => {
     }
   `); */
 
-  /* const darkTheme = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const darkTheme = {
     background: '#000',
     text: '#fff',
-  }; */
+    red: '#ea291e',
+  };
 
   const lightTheme = {
     background: '#fff',
     text: '#000',
+    red: '#ea291e',
   };
 
   return (
