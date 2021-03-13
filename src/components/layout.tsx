@@ -2,6 +2,7 @@ import React from 'react';
 // import { useStaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { normalize } from 'styled-normalize';
+import { useGlobalStateContext } from '../context/globalContext';
 
 import Header from './header';
 
@@ -14,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    font-size: 1.6rem;
+    font-size: 16px;
   }
 
   body {
@@ -49,9 +50,11 @@ const Layout: React.FC = ({ children }) => {
     red: '#ea291e',
   };
 
+  const { currentTheme } = useGlobalStateContext();
+
   return (
     <>
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyle />
         <Header />
         <main>{children}</main>
