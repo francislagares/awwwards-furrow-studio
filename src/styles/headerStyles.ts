@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components/macro';
 
-export const HeaderNav = styled.div`
+export const HeaderNav = styled(motion.div)`
   top: 72px;
   right: 0;
   left: 0;
