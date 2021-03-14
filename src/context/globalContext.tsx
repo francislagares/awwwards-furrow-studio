@@ -1,20 +1,15 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { createContext, useContext, useReducer } from 'react';
-
-interface ITheme {
-  currentTheme: string | null;
-}
-
-interface IAction {
-  type: string;
-  theme: string;
-}
+import { ITheme, IAction } from '../interfaces';
 
 const initialState = {
   currentTheme: 'dark',
+  cursorType: false,
 };
 
 const GlobalStateContext = createContext<ITheme>(initialState);
-const GlobalDispatchContext = createContext({});
+// @ts-ignore
+const GlobalDispatchContext = createContext();
 
 const globalReducer = (state: ITheme, action: IAction): ITheme => {
   switch (action.type) {
@@ -22,6 +17,13 @@ const globalReducer = (state: ITheme, action: IAction): ITheme => {
       return {
         ...state,
         currentTheme: action.theme,
+      };
+    }
+
+    case 'CURSOR_TYPE': {
+      return {
+        ...state,
+        cursorType: action.cursorType,
       };
     }
     default: {
@@ -36,6 +38,8 @@ export const GlobalProvider: React.FC = ({ children }) => {
       window.localStorage.getItem('theme') === null
         ? 'dark'
         : window.localStorage.getItem('theme'),
+    cursorType: false,
+    cursorStyles: ['pointer', 'hover'],
   });
 
   return (
