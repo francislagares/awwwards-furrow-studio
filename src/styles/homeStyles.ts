@@ -18,7 +18,7 @@ export const Video = styled.div`
   }
 `;
 
-export const Canvas = styled.div`
+export const Canvas = styled.canvas`
   position: absolute;
   top: 0;
   left: 0;
