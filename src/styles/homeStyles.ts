@@ -1,4 +1,4 @@
-//import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const Banner = styled.div`
@@ -26,7 +26,7 @@ export const Canvas = styled.canvas`
   display: block;
 `;
 
-export const BannerTitle = styled.div`
+export const BannerTitle = styled(motion.h1)`
   position: absolute;
   bottom: -120px;
   left: -18px;
@@ -34,7 +34,7 @@ export const BannerTitle = styled.div`
   pointer-events: none;
 `;
 
-export const HeadLine = styled.div`
+export const HeadLine = styled(motion.span)`
   display: block;
   font-size: 23rem;
   font-weight: 900;
