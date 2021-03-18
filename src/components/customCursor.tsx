@@ -2,16 +2,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useGlobalStateContext } from '../context/globalContext';
+import { IMouseMove, IMousePosition } from '../interfaces';
 import { Cursor } from '../styles/globalStyles';
 
 const CustomCursor = (): JSX.Element => {
   const { cursorType } = useGlobalStateContext();
-  const [mousePosition, setMousePosition] = useState({
+  const [mousePosition, setMousePosition] = useState<IMousePosition>({
     x: 400,
     y: 400,
   });
 
-  const onMouseMove = (event: any): void => {
+  const onMouseMove = (event: IMouseMove): void => {
     const { pageX: x, pageY: y } = event;
     setMousePosition({ x, y });
   };
