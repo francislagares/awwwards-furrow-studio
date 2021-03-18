@@ -5,6 +5,7 @@ import { ITheme, IAction } from '../interfaces';
 const initialState = {
   currentTheme: 'dark',
   cursorType: false,
+  cursorStyles: ['pointer', 'hover'],
 };
 
 const GlobalStateContext = createContext<ITheme>(initialState);
