@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React from 'react';
+import React, { useState } from 'react';
 // import { useStaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { normalize } from 'styled-normalize';
@@ -9,6 +9,7 @@ import {
 } from '../context/globalContext';
 import Cursor from './customCursor';
 import Header from './header';
+import Navigation from './navigation';
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -64,12 +65,23 @@ const Layout: React.FC = ({ children }) => {
     dispatch({ type: 'CURSOR_TYPE', cursorType: cursorType });
   };
 
+  const [toggleMenu, setToggleMenu] = useState(false);
+
   return (
     <>
       <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyle />
-        <Cursor />
-        <Header onCursor={onCursor} />
+        <Cursor toggleMenu={toggleMenu} />
+        <Header
+          onCursor={onCursor}
+          toggleMenu={toggleMenu}
+          setToggleMenu={setToggleMenu}
+        />
+        <Navigation
+          onCursor={onCursor}
+          toggleMenu={toggleMenu}
+          setToggleMenu={setToggleMenu}
+        />
         <main>{children}</main>
       </ThemeProvider>
     </>

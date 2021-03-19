@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeBanner from '../components/homePage/homeBanner';
+import HomeContent from '../components/homePage/homeContent';
 import Layout from '../components/layout';
 import {
   useGlobalStateContext,
@@ -18,6 +19,7 @@ const IndexPage = (): JSX.Element => {
   return (
     <Layout>
       <HomeBanner onCursor={onCursor} />
+      <HomeContent />
     </Layout>
   );
 };

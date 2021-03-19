@@ -5,7 +5,7 @@ import { useGlobalStateContext } from '../context/globalContext';
 import { IMouseMove, IMousePosition } from '../interfaces';
 import { Cursor } from '../styles/globalStyles';
 
-const CustomCursor = (): JSX.Element => {
+const CustomCursor = ({ toggleMenu }): JSX.Element => {
   const { cursorType } = useGlobalStateContext();
   const [mousePosition, setMousePosition] = useState<IMousePosition>({
     x: 400,
@@ -27,7 +27,9 @@ const CustomCursor = (): JSX.Element => {
   return (
     <>
       <Cursor
-        className={`${!!cursorType ? cursorType : ''} ${cursorType}`}
+        className={`${!!cursorType ? cursorType : ''} ${cursorType} ${
+          toggleMenu ? 'nav-open' : ''
+        }`}
         style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
       />
     </>

@@ -8,7 +8,7 @@ import {
 import { Container, Flex } from '../styles/globalStyles';
 import { HeaderNav, Logo, Menu } from '../styles/headerStyles';
 
-const Header = ({ onCursor }: any): JSX.Element => {
+const Header = ({ onCursor, setToggleMenu, toggleMenu }: any): JSX.Element => {
   const dispatch = useGlobalDispatchContext();
   const { currentTheme } = useGlobalStateContext();
 
@@ -34,10 +34,7 @@ const Header = ({ onCursor }: any): JSX.Element => {
     >
       <Container>
         <Flex spaceBetween noHeight>
-          <Logo
-            onMouseEnter={() => onCursor('hovered')}
-            onMouseLeave={onCursor}
-          >
+          <Logo onMouseEnter={() => onCursor('hover')} onMouseLeave={onCursor}>
             <Link to='/'>FURR</Link>
             <span
               role='button'
@@ -49,7 +46,7 @@ const Header = ({ onCursor }: any): JSX.Element => {
             ></span>
             <Link to='/'>W</Link>
           </Logo>
-          <Menu>
+          <Menu onClick={() => setToggleMenu(!toggleMenu)}>
             <button>
               <span></span>
               <span></span>
