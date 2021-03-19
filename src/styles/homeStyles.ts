@@ -42,3 +42,14 @@ export const HeadLine = styled(motion.span)`
   /* prettier-ignore */
   line-height: .76;
 `;
+
+export const HomeContentSection = styled(motion.div)`
+  margin-bottom: 200px;
+`;
+export const Content = styled(motion.h2)`
+  width: 53%;
+  color: ${props => props.theme.text};
+  font-size: 2.3rem;
+  font-weight: 400;
+  margin-left: 124px;
+`;
