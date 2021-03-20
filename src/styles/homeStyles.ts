@@ -168,3 +168,77 @@ export const FeaturedProjects = styled.div`
     }
   }
 `;
+
+export const HomeAboutSection = styled(motion.div)`
+  /* margin-bottom: 200px; */
+`;
+export const About = styled.div`
+  width: 100%;
+
+  h2 {
+    width: 60%;
+    color: ${props => props.theme.text};
+    font-size: 2.3rem;
+    font-weight: 400;
+    margin-left: 124px;
+  }
+
+  p {
+    color: ${props => props.theme.text};
+    font-size: 1rem;
+    max-width: 440px;
+    line-height: 1.6rem;
+    margin-left: 124px;
+  }
+`;
+export const Services = styled.div``;
+
+//Accordion
+
+export const AccordionHeader = styled(motion.div)`
+  width: 100%;
+  height: 32px;
+  margin: 8px 0;
+  color: #ea281e;
+  font-size: 1.15rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  }
+`;
+export const AccordionIcon = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 8px;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    span {
+      width: 16px;
+      height: 4px;
+      background: #ea281e;
+      transition: none;
+    }
+  }
+
+  span {
+    width: 16px;
+    height: 4px;
+    background: #ea281e;
+    transition: all .1s ease-in-out;
+  }
+`;
+
+export const AccordionContent = styled(motion.div)`
+  overflow: hidden;
+  padding-left: 40px;
+
+  span {
+    width: 100%;
+    margin: 8px 0;
+    color: #ea281e;
+    font-size: .875rem;
+    font-weight: 300;
+    display: block;
+  }
+`;
