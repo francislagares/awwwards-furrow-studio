@@ -84,18 +84,32 @@ export const Cursor = styled.div`
   pointer-events: none;
   z-index: 999;
 
-  &.hovered {
+  &.hover {
     background: transparent !important;
     width: 56px;
     height: 56px;
     border: 4px solid ${props => props.theme.red};
+  }
 
-    &.pointer {
-      border: 4px solid ${props => props.theme.text};
-    }
+  &.pointer {
+    border: 4px solid ${props => props.theme.text};
+  }
+
+  &.locked {
+    top: ${props => props.theme.top} !important;
+    left: ${props => props.theme.left} !important;
+    width: 56px;
+    height: 56px;
+    border: 4px solid ${props => props.theme.text} !important;
+    background: transparent !important;
   }
 
   &.nav-open {
-    background: ${props => props.theme.text};
+    background: ${props => props.theme.text} !important;
+  }
+
+  &.nav-open,
+  &.locked {
+    border: 4px solid ${props => props.theme.text} !important;
   }
 `;
