@@ -5,7 +5,7 @@ import { ITheme, IAction } from '../interfaces';
 const initialState = {
   currentTheme: 'dark',
   cursorType: false,
-  cursorStyles: ['pointer', 'hover'],
+  cursorStyles: ['pointer', 'hover', 'locked'],
 };
 
 const GlobalStateContext = createContext<ITheme>(initialState);
@@ -40,7 +40,7 @@ export const GlobalProvider: React.FC = ({ children }) => {
         ? 'dark'
         : window.localStorage.getItem('theme'),
     cursorType: false,
-    cursorStyles: ['pointer', 'hover'],
+    cursorStyles: ['pointer', 'hover', 'locked'],
   });
 
   return (

@@ -1,16 +1,24 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
 } from '../context/globalContext';
+import useElementPosition from '../hooks/useElementPosition';
 import { Container, Flex } from '../styles/globalStyles';
 import { HeaderNav, Logo, Menu } from '../styles/headerStyles';
 
-const Header = ({ onCursor, setToggleMenu, toggleMenu }: any): JSX.Element => {
+const Header = ({
+  onCursor,
+  setToggleMenu,
+  toggleMenu,
+  setHamburgerPosition,
+}: any): JSX.Element => {
   const dispatch = useGlobalDispatchContext();
   const { currentTheme } = useGlobalStateContext();
+  const hamburger = useRef(null);
+  const position = useElementPosition(hamburger);
 
   const toggleTheme = (): void => {
     if (currentTheme === 'dark') {
@@ -20,6 +28,11 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }: any): JSX.Element => {
       // @ts-ignore
       dispatch({ type: 'TOGGLE_THEME', theme: 'dark' });
     }
+  };
+
+  const menuHover = (): void => {
+    onCursor('locked');
+    setHamburgerPosition({ x: position.x, y: position.y + 72 });
   };
 
   useEffect(() => {
@@ -46,7 +59,12 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }: any): JSX.Element => {
             ></span>
             <Link to='/'>W</Link>
           </Logo>
-          <Menu onClick={() => setToggleMenu(!toggleMenu)}>
+          <Menu
+            ref={hamburger}
+            onClick={() => setToggleMenu(!toggleMenu)}
+            onMouseEnter={menuHover}
+            onMouseLeave={onCursor}
+          >
             <button>
               <span></span>
               <span></span>

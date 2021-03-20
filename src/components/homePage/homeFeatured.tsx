@@ -79,7 +79,7 @@ const HomeFeatured = ({ onCursor }): JSX.Element => {
             </h2>
           </FeaturedContent>
           <FeaturedVideo>
-            <video src={videoBackground} loop autoPlay></video>
+            <video src={videoBackground} loop autoPlay muted></video>
           </FeaturedVideo>
         </Link>
       </Container>

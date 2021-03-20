@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeAbout from '../components/homePage/homeAbout';
 import HomeBanner from '../components/homePage/homeBanner';
 import HomeContent from '../components/homePage/homeContent';
 import HomeFeatured from '../components/homePage/homeFeatured';
@@ -22,6 +23,7 @@ const IndexPage = (): JSX.Element => {
       <HomeBanner onCursor={onCursor} />
       <HomeContent />
       <HomeFeatured onCursor={onCursor} />
+      <HomeAbout onCursor={onCursor} />
     </Layout>
   );
 };
