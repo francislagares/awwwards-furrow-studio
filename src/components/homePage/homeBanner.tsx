@@ -65,7 +65,7 @@ const HomeBanner = ({ onCursor }): JSX.Element => {
         renderingCtx.drawImage(drawingElement, 0, 0);
       }
     });
-  }, [currentTheme, size.height, size.width]);
+  }, [currentTheme, size?.height, size?.width]);
 
   const parent = {
     initial: { y: 800 },
@@ -100,8 +100,8 @@ const HomeBanner = ({ onCursor }): JSX.Element => {
           src={VideoBackground}
         />
         <Canvas
-          width={size.width}
-          height={size.height}
+          width={size?.width}
+          height={size?.height}
           ref={canvas}
           onMouseEnter={() => onCursor('hovered')}
           onMouseLeave={onCursor}

@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 
-type ReturnSize = { width: number; height: number };
+type ReturnSize = { width: number; height: number } | undefined;
 
 const useWindowSize = (): ReturnSize => {
   function getSize(): ReturnSize {
-    return {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
+    if (typeof window !== `undefined`) {
+      return {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    }
   }
 
   const [windowSize, setWindowSize] = useState(getSize);
